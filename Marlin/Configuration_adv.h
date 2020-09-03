@@ -1128,7 +1128,7 @@
 //#define LCD_TIMEOUT_TO_STATUS 15000
 
 // Add an 'M73' G-code to set the current percentage
-//#define LCD_SET_PROGRESS_MANUALLY
+#define LCD_SET_PROGRESS_MANUALLY
 
 // Show the E position (filament used) during printing
 //#define LCD_SHOW_E_TOTAL
@@ -2265,7 +2265,7 @@
 
   #if AXIS_IS_TMC(X)
     #define X_CURRENT       650        // (mA) RMS current. Multiply by 1.414 for peak current.
-    #define X_CURRENT_HOME  X_CURRENT/2  // (mA) RMS current for sensorless homing
+    #define X_CURRENT_HOME  X_CURRENT  // (mA) RMS current for sensorless homing
     #define X_MICROSTEPS     16    // 0..256
     #define X_RSENSE          0.11
     #define X_CHAIN_POS      -1    // <=0 : Not chained. 1 : MCU MOSI connected. 2 : Next in chain, ...
@@ -2273,7 +2273,7 @@
 
   #if AXIS_IS_TMC(X2)
     #define X2_CURRENT      650
-    #define X2_CURRENT_HOME X2_CURRENT/2
+    #define X2_CURRENT_HOME X2_CURRENT
     #define X2_MICROSTEPS    16
     #define X2_RSENSE         0.11
     #define X2_CHAIN_POS     -1
@@ -2281,7 +2281,7 @@
 
   #if AXIS_IS_TMC(Y)
     #define Y_CURRENT       650
-    #define Y_CURRENT_HOME  Y_CURRENT/2
+    #define Y_CURRENT_HOME  Y_CURRENT
     #define Y_MICROSTEPS     16
     #define Y_RSENSE          0.11
     #define Y_CHAIN_POS      -1
@@ -2289,7 +2289,7 @@
 
   #if AXIS_IS_TMC(Y2)
     #define Y2_CURRENT      650
-    #define Y2_CURRENT_HOME Y2_CURRENT/2
+    #define Y2_CURRENT_HOME Y2_CURRENT
     #define Y2_MICROSTEPS    16
     #define Y2_RSENSE         0.11
     #define Y2_CHAIN_POS     -1
@@ -2502,16 +2502,16 @@
    * STEALTHCHOP_(XY|Z|E) must be enabled to use HYBRID_THRESHOLD.
    * M913 X/Y/Z/E to live tune the setting
    */
-  //#define HYBRID_THRESHOLD
+  #define HYBRID_THRESHOLD
 
-  #define X_HYBRID_THRESHOLD     100  // [mm/s]
-  #define X2_HYBRID_THRESHOLD    100
-  #define Y_HYBRID_THRESHOLD     100
-  #define Y2_HYBRID_THRESHOLD    100
-  #define Z_HYBRID_THRESHOLD       3
-  #define Z2_HYBRID_THRESHOLD      3
-  #define Z3_HYBRID_THRESHOLD      3
-  #define Z4_HYBRID_THRESHOLD      3
+  #define X_HYBRID_THRESHOLD     150  // [mm/s]
+  #define X2_HYBRID_THRESHOLD    150
+  #define Y_HYBRID_THRESHOLD     150
+  #define Y2_HYBRID_THRESHOLD    150
+  #define Z_HYBRID_THRESHOLD       0
+  #define Z2_HYBRID_THRESHOLD      0
+  #define Z3_HYBRID_THRESHOLD      0
+  #define Z4_HYBRID_THRESHOLD      0
   #define E0_HYBRID_THRESHOLD     30
   #define E1_HYBRID_THRESHOLD     30
   #define E2_HYBRID_THRESHOLD     30
