@@ -495,9 +495,9 @@
   #else
     // Creality CR-10
     // 205C + 100% Fan
-    #define DEFAULT_Kp 34.91
-    #define DEFAULT_Ki 3.85
-    #define DEFAULT_Kd 79.18
+    #define DEFAULT_Kp 30.85
+    #define DEFAULT_Ki 3.29
+    #define DEFAULT_Kd 72.42
   #endif
 #endif // PIDTEMP
 
@@ -518,7 +518,7 @@
  * heater. If your configuration is significantly different than this and you don't understand
  * the issues involved, don't use bed PID until someone else verifies that your hardware works.
  */
-#define PIDTEMPBED
+//#define PIDTEMPBED
 
 //#define BED_LIMIT_SWITCHING
 
