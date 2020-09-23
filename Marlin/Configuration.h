@@ -494,10 +494,14 @@
     #define DEFAULT_Kd_LIST { 114.00, 112.0 }
   #else
     // Creality CR-10
-    // 205C + 100% Fan
-    #define DEFAULT_Kp 30.85
-    #define DEFAULT_Ki 3.29
-    #define DEFAULT_Kd 72.42
+    // 205C + 100% Fan (M301 P30.85 I3.29 D72.42)
+    //#define DEFAULT_Kp 30.85
+    //#define DEFAULT_Ki 3.29
+    //#define DEFAULT_Kd 72.42
+    // 240C @ 0% fan (M301 P29.38 I3.01 D71.72)
+    #define DEFAULT_Kp 29.38
+    #define DEFAULT_Ki 3.01
+    #define DEFAULT_Kd 71.62
   #endif
 #endif // PIDTEMP
 
