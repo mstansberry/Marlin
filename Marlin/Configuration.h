@@ -424,7 +424,7 @@
 #define TEMP_SENSOR_5 0
 #define TEMP_SENSOR_6 0
 #define TEMP_SENSOR_7 0
-#define TEMP_SENSOR_BED 1
+#define TEMP_SENSOR_BED 11
 #define TEMP_SENSOR_PROBE 0
 #define TEMP_SENSOR_CHAMBER 0
 
@@ -494,14 +494,14 @@
     #define DEFAULT_Kd_LIST { 114.00, 112.0 }
   #else
     // Creality CR-10
-    // 205C + 100% Fan (M301 P30.85 I3.29 D72.42)
-    #define DEFAULT_Kp 30.85
-    #define DEFAULT_Ki 3.29
-    #define DEFAULT_Kd 72.42
+    // 205C + 100% Fan (M301 P30.61 I3.19 D73.46)
+    //#define DEFAULT_Kp 30.61
+    //#define DEFAULT_Ki 3.19
+    //#define DEFAULT_Kd 73.46
     // 240C @ 0% fan (M301 P29.38 I3.01 D71.72)
-    //#define DEFAULT_Kp 29.38
-    //#define DEFAULT_Ki 3.01
-    //#define DEFAULT_Kd 71.62
+    #define DEFAULT_Kp 29.38
+    #define DEFAULT_Ki 3.01
+    #define DEFAULT_Kd 71.62
   #endif
 #endif // PIDTEMP
 
@@ -522,7 +522,7 @@
  * heater. If your configuration is significantly different than this and you don't understand
  * the issues involved, don't use bed PID until someone else verifies that your hardware works.
  */
-//#define PIDTEMPBED
+#define PIDTEMPBED
 
 //#define BED_LIMIT_SWITCHING
 
@@ -552,9 +552,14 @@
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
   //CR-10 stock bed @60C
-  #define DEFAULT_bedKp 193.61
-  #define DEFAULT_bedKi 37.12
-  #define DEFAULT_bedKd 673.19
+  //#define DEFAULT_bedKp 193.61
+  //#define DEFAULT_bedKi 37.12
+  //#define DEFAULT_bedKd 673.19
+
+  //CR-10 750w @100C "M304 P40.16 I6.29 D170.98"
+  #define DEFAULT_bedKp 40.16
+  #define DEFAULT_bedKi 6.29
+  #define DEFAULT_bedKd 170.98
 #endif // PIDTEMPBED
 
 #if EITHER(PIDTEMP, PIDTEMPBED)
@@ -997,7 +1002,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 48, -2, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 46, -3, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1137,8 +1142,8 @@
 #define Y_BED_SIZE 300
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -7
-#define Y_MIN_POS -7
+#define X_MIN_POS -3
+#define Y_MIN_POS -8
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
@@ -2292,14 +2297,14 @@
 // Use software PWM to drive the fan, as for the heaters. This uses a very low frequency
 // which is not as annoying as with the hardware PWM. On the other hand, if this frequency
 // is too low, you should also increment SOFT_PWM_SCALE.
-#define FAN_SOFT_PWM
+//#define FAN_SOFT_PWM
 
 // Incrementing this by 1 will double the software PWM frequency,
 // affecting heaters, and the fan if FAN_SOFT_PWM is enabled.
 // However, control resolution will be halved for each increment;
 // at zero value, there are 128 effective control positions.
 // :[0,1,2,3,4,5,6,7]
-#define SOFT_PWM_SCALE 1
+#define SOFT_PWM_SCALE 0
 
 // If SOFT_PWM_SCALE is set to a value higher than 0, dithering can
 // be used to mitigate the associated resolution loss. If enabled,
